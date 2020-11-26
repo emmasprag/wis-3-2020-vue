@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vue.js Navigation Menu</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+   <style>
+       
+*{
+		margin:0; /*90 50*/
+		padding:0;
+	}
+
+	body{
+		
+    background-image:url("../Documents/SleepHelp/background1.jpg");
+    /*width: -300px;
+    margin-left: auto;
+    margin-right: 430px;
+    box-shadow: rgb(36, 36, 36) 6px 6px 6px ;
+    border-radius: 10px;
+    padding: 15px;  
+    border: solid rgb(63, 63, 65);
+    border-width: 3px;*/
+    
+	}
+
+	a, a:visited {
+		outline:none;
+		color:#389dc1;
+	}
+
+	a:hover{
+		text-decoration:none;
+	}
+
+	section, footer, header, aside, nav{
+		display: block;
+	}
+
+	/*-------------------------
+		The menu
+	--------------------------*/
+
+	nav{
+		display:inline-block;
+        
+        padding: 15px; 
+        margin-top: -15px;
+		background-color:#0d0325;
+		width: 700px;
+        margin-left: -16px;
+        margin-right: 85px;
+        padding-left:60px;
+        padding-right:75px;
+        padding-bottom: 9px;
+        padding-top: 8px;
+        border-radius: 50px;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+        background-image:url("../Documents/SleepHelp/lune.png");
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-size: 8%;
+        background-position: 3%;
+    }
+
+	nav a{
+		display:inline-block;
+		padding: 18px 30px;
+		color:#fff !important;
+		font-weight:bold;
+		font-size:16px;
+		text-decoration:none !important;
+		line-height:1;
+		text-transform: uppercase;
+		background-color:transparent;
+
+		-webkit-transition:background-color 0.25s;
+		-moz-transition:background-color 0.25s;
+		transition:background-color 0.25s;
+	}
+
+	nav a:first-child{
+		border-radius:2px 0 0 2px;
+	}
+
+	nav a:last-child{
+		border-radius:0 2px 2px 0;
+	}
+
+	nav.home .home,
+	nav.projects .projects,
+	nav.services .services,
+	nav.contact .contact{
+        background-color:#58d3e3;
+        border-radius: 50px;
+	}
+
+	p{
+		font-size:22px;
+		font-weight:bold;
+		color:#7d9098;
+	}
+
+	p b{
+		color:#ffffff;
+		display:inline-block;
+		padding:5px 10px;
+		background-color:#c4d7e0;
+		border-radius:2px;
+		text-transform:uppercase;
+		font-size:18px;
+	}
+
+
+#main{
+    font:15px/1.3 'Open Sans', sans-serif;
+		color: #5e5b64;
+        text-align:center;
+        background-image:url("../Documents/SleepHelp/background-home.jpg");
+        background-attachment: auto;
+        background-repeat:no-repeat;
+         margin-bottom: auto;
+         margin-top: auto;
+         box-shadow: rgb(-50, -50, -50, -50) 6px 6px 6px 6px ;
+    border-radius: 50px;
+    padding: 15px;  
+    padding-bottom: 500px;
+    position:relative; left:300px; top:2px;
+    color: #EEE;
+    width: 800px;
+    margin-left: -100;
+    margin-right: 100px;
+    
+
+    
+}
+
+
+#home{
+    color: #f4f8fa;
+    
+}
+.content {
+  height: 100%;
+  width: 100%;
+  border: 2px solid #42b983;
+  border-radius: 5px;
+} 
+
+   </style>
+   </head>
+   <body>
+
+    <div id="main">
+    
+        <!-- The navigation menu will get the value of the "active" variable as a class. -->
+        <!-- To stops the page from jumping when a link is clicked we use the "prevent" modifier (short for preventDefault). -->
+    
+        <nav v-bind:class="active">
+    
+            <!-- When a link in the menu is clicked, we call the makeActive method, defined in the JavaScript Vue instance. -->
+    
+       
+            <a href="SleepHelp.html" class="home" v-on:click="makeActive('home')">Home</a>
+            <a href="SleepHelpProject.html" class="project" v-on:click="makeActive('project')">Calculer</a>
+            <a href="SleepHelpServices.html" class="services" v-on:click="makeActive('services')">Tips</a>
+            <a href="chat box.html" class="chatbox" @click="makeActive('chatbox')"> Chat Box</a>
+       
+        </nav>
+    
+         <!-- The mustache expression will be replaced with the value of "active".
+              It will automatically update to reflect any changes. -->
+         
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.5/vue.min.js"></script>
+    <script>
+    // Creating a new Vue instance and pass in an options object.
+    var demo = new Vue({
+    
+        // A DOM element to mount our view model.
+        el: '#main',
+    
+        // Define properties and give them initial values.
+        data: {
+            active: 'home'
+        },
+    
+        // Functions we will be using.
+        methods: {
+            makeActive: function(nav){
+                // When a model is changed, the view will be automatically updated.
+                this.active = nav;
+            }
+        }
+    });
+   
+    </script>
+    </body>
+    </html>
